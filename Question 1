@@ -1,0 +1,45 @@
+def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def get_prime_numbers(sequence):
+    primes = [num for num in sequence if is_prime(num)]
+    return primes
+
+def main():
+    numbers = []
+
+    while True:
+        try:
+            user_input = input("Nhập số (hoặc 'ok' để kết thúc ): ")
+            
+            if user_input.lower() == 'ok':
+                break
+            
+            num = int(user_input)
+            
+            if num < 1:
+                print("Nhập số nguyên dương")
+                continue
+            
+            numbers.append(num)
+        
+        except ValueError:
+            print("Lỗi. Nhập lại")
+
+    prime_numbers = get_prime_numbers(numbers)
+
+    print("\nPrime numbers:", prime_numbers)
+    
+    if prime_numbers:
+        print("Largest prime number:", max(prime_numbers))
+        print("Total prime numbers:", len(prime_numbers))
+    else:
+        print("No prime numbers in the sequence.")
+
+if __name__ == "__main__":
+    main()
