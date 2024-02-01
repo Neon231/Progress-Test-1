@@ -1,0 +1,22 @@
+def find_max_occurred_word(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            content = file.read()
+            words = content.split()
+            word_count = {}
+
+            for word in words:
+                word_count[word] = word_count.get(word, 0) + 1
+
+            if not word_count:
+                print("Không tồn tại file")
+                return
+
+            max_occurred_word = max(word_count, key=word_count.get)
+            max_occurrence = word_count[max_occurred_word]
+
+            print(f"Từ xuất hiện nhiều nhất là '{max_occurred_word}' với {max_occurrence} lần")
+    except FileNotFoundError:
+        print("Lỗi. Nhập lại link file")
+    except Exception as e:
+        print(f"Báo lỗi: {e}")
