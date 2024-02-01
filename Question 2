@@ -1,0 +1,15 @@
+import random
+
+def find_pair(expected_total):
+    while True:
+        ball1 = random.randint(1, 10)
+        ball2 = random.randint(1, 10)
+
+        if ball1 + ball2 == expected_total:
+            return ball1, ball2
+
+# Example usage:
+expected_total = 15  
+pair = find_pair(expected_total)
+print(f"The pair of balls with a sum of {expected_total} is: {pair}")
+
