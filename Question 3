@@ -1,0 +1,52 @@
+def process_date_data():
+    try:
+        day = int(input("Nhập ngày: "))
+        month = int(input("Nhập tháng: "))
+        year = int(input("Nhập năm: "))
+
+        if 1 <= day <= 31 and 1 <= month <= 12 and year > 0:
+            print("Hợp lí")
+        else:
+            print("Vô lí")
+    except ValueError:
+        print("Vô lí. Hãy nhập lại.")
+
+def process_character_data():
+    try:
+        char1 = input("Nhập chữ thứ nhất: ")[0]
+        char2 = input("Nhập chữ thứ hai: ")[0]
+
+        start_char, end_char = min(char1, char2), max(char1, char2)
+
+        for char in range(ord(end_char), ord(start_char) - 1, -1):
+            print(f"Chữ: {chr(char)}, ASCII Code: {char}")
+    except IndexError:
+        print("Lỗi. Nhập lại hai chữ.")
+    except Exception as e:
+        print(f"Có lỗi: {e}")
+
+def main():
+    while True:
+        print("\nMenu:")
+        print("1. Processing date data.")
+        print("2. Character data.")
+        print("3. Quit.")
+
+        choice = input("Chọn chương trình (1, 2, 3): ")
+
+        if choice == '1':
+            process_date_data()
+        elif choice == '2':
+            process_character_data()
+        elif choice == '3':
+            print("Ok")
+            break
+        else:
+            print("Lỗi. Nhập 1, 2, hoặc 3.")
+
+if __name__ == "__main__":
+    main()
+
+
+    
+            
